@@ -1,0 +1,80 @@
+.sales {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sales__title, .inventory__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sales__form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sales__select, .sales__input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sales__button {
+  padding: 0.5rem 1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sales__button:hover {
+  background-color: #218838;
+}
+
+.sales__list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.sales__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.inventory__title {
+  margin-top: 2rem;
+}
+
+.inventory__table {
+  border: 1px solid gray;
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.inventory__table th, .inventory__table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.inventory__table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.inventory__table td {
+  background-color: #f9f9f9;
+}
