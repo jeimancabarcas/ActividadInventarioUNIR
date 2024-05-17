@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/UserProfile.css';
 
 const UserProfilePage = () => {
@@ -14,7 +14,7 @@ const UserProfilePage = () => {
 
   const handleSave = () => {
     localStorage.setItem('user', JSON.stringify(user));
-    alert('Profile updated successfully');
+    alert('Perfil actualizado correctamente');
   };
 
   return (
