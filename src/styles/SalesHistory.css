@@ -1,0 +1,25 @@
+.sales-history {
+    padding: 20px;
+  }
+  
+  .sales-history__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .sales-history__table th, .sales-history__table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .sales-history__table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .sales-history__table td {
+    background-color: #f9f9f9;
+  }
+  

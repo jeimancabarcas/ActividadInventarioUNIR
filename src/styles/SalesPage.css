@@ -78,3 +78,55 @@
 .inventory__table td {
   background-color: #f9f9f9;
 }
+
+.sales__remove-button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.sales__remove-button:hover {
+  background-color: darkred;
+}
+
+.sales__select-button {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.sales__select-button:hover {
+  background-color: #0056b3;
+}
+
+
+.sales__table-wrapper, .inventory__table-wrapper {
+  margin-top: 20px;
+}
+
+.sales__table, .inventory__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sales__table th, .sales__table td, .inventory__table th, .inventory__table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.sales__table th, .inventory__table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.sales__table td, .inventory__table td {
+  background-color: #f9f9f9;
+}

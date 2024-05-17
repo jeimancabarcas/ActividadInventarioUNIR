@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/InventoryPage.css';
-import InventoryTable from './InventoryTable';
+import InventoryForm from '../components/InventoryForm';
+import InventoryTable from '../components/InventoryTable';
 
-const InventoryPage = ({ inventory, setInventory }) => {
-  const [newItem, setNewItem] = useState({ name: '', quantity: 0 });
+const InventoryPage = () => {
+  const [inventory, setInventory] = useState(() => {
+    const savedInventory = localStorage.getItem('inventory');
+    return savedInventory ? JSON.parse(savedInventory) : [];
+  });
 
-  const addItem = () => {
-    const trimmedName = newItem.name.trim();
-    const existingItem = inventory.find(item => item.name.toLowerCase() === trimmedName.toLowerCase());
+  useEffect(() => {
+    localStorage.setItem('inventory', JSON.stringify(inventory));
+  }, [inventory]);
+
+  const addItem = (item) => {
+    const existingItem = inventory.find(i => i.name.toLowerCase() === item.name.toLowerCase());
     if (existingItem) {
       alert('El producto ya existe en el inventario.');
     } else {
-      setInventory([...inventory, { ...newItem, name: trimmedName, id: Date.now() }]);
-      setNewItem({ name: '', quantity: 0 });
+      setInventory([...inventory, item]);
     }
   };
 
@@ -21,6 +27,10 @@ const InventoryPage = ({ inventory, setInventory }) => {
   };
 
   const editItem = (id, quantity) => {
+    if (quantity <= 0) {
+      alert('La cantidad debe ser mayor que cero.');
+      return;
+    }
     setInventory(inventory.map(item => item.id === id ? { ...item, quantity } : item));
   };
 
@@ -33,23 +43,7 @@ const InventoryPage = ({ inventory, setInventory }) => {
         onDelete={deleteItem}
         editable={true}
       />
-      <div className="inventory__form">
-        <input
-          className="inventory__input"
-          type="text"
-          placeholder="Nombre"
-          value={newItem.name}
-          onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
-        />
-        <input
-          className="inventory__input"
-          type="number"
-          placeholder="Cantidad"
-          value={newItem.quantity}
-          onChange={(e) => setNewItem({ ...newItem, quantity: Number(e.target.value) })}
-        />
-        <button className="inventory__button" onClick={addItem}>Agregar Producto</button>
-      </div>
+      <InventoryForm onAdd={addItem} />
     </div>
   );
 }
